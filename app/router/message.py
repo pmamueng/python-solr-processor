@@ -4,7 +4,7 @@ from app import schemas
 
 router = APIRouter(
     prefix="/message",
-    tags=['Messages']
+    tags=["Messages"]
 )
 
 
