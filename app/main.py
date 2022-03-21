@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 
+from app.router import message
+
 app = FastAPI()
+
+
+app.include_router(message.router)
 
 
 @app.get("/")
