@@ -1,6 +1,6 @@
 import pika
 
-body = "hello_world_2"
+body = 'hello_world_2'
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
