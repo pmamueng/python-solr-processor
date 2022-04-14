@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app import schemas
+from services.rabbitmq.rabbitmq import RabbitMq
 
 router = APIRouter(
     prefix="/message",
@@ -14,5 +15,7 @@ def get_message():
 
 
 @router.post("/")
-def post_message(message: schemas.MessageBase):
-    return message
+def send_message(message):
+    rabbitmq = RabbitMq(message)
+    rabbitmq.send()
+    return rabbitmq.message
